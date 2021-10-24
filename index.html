@@ -9,8 +9,11 @@
 <body>
     
     <script>
+        let userChoice = "nothing yet";
+        let computerChoice = "nothing yet";
+
         function computerPlay() {
-          let computerChoice =   Math.random();
+          computerChoice =  Math.random();
           if (computerChoice < 0.34){
               computerChoice = "Rock";
           } else if (computerChoice <= 0.67){
@@ -22,22 +25,22 @@
         }
 
         function userPlay(){
-            let userChoice = prompt("Rock, Paper or Scissors?");
+            userChoice = prompt("Rock, Paper or Scissors?");
             userChoice = userChoice.toLowerCase();
 
             return userChoice;
         }
 
         function oneRound(userChoice, computerChoice){
-            if (computerPlay === userPlay){
+            if (computerChoice === userChoice){
                 return "it's a tie!";
-            } else if  ((userChoice === "rock" && computerChoice === "paper") ||
-                        (userChoice === "paper" && computerChoice === "scissors") ||
-                        (userChoice === "scissors" && computerChoice === "rock")){
+            } else if  (userChoice == "rock" && computerChoice == "paper" ||
+                        userChoice == "paper" && computerChoice == "scissors" ||
+                        userChoice == "scissors" && computerChoice == "rock"){
                         return "Computer Wins!";
-            } else if ((userChoice === "rock" && computerChoice === "scissors") ||
-                        (userChoice === "paper" && computerChoice === "rock") ||
-                        (userChoice === "scissors" && computerChoice === "paper")){
+            } else if (userChoice == "rock" && computerChoice == "scissors" ||
+                        userChoice == "paper" && computerChoice == "rock" ||
+                        userChoice == "scissors" && computerChoice == "paper"){
                         return "User Wins!";
             } else return "This isn't working!......";
         }
