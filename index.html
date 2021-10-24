@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function computerPlay() {
+          let computerChoice =   Math.random();
+          if (computerChoice < 0.34){
+              computerChoice = "Rock";
+          } else if (computerChoice <= 0.67){
+              computerChoice = "Paper";
+          } else computerChoice = "Scissors";
+          computerChoice = computerChoice.toLowerCase();
+
+          return computerChoice;
+        }
+
+        function userPlay(){
+            let userChoice = prompt("Rock, Paper or Scissors?");
+            userChoice = userChoice.toLowerCase();
+
+            return userChoice;
+        }
+
+        function oneRound(userChoice, computerChoice){
+            if (computerPlay === userPlay){
+                return "it's a tie!";
+            } else if  ((userChoice === "rock" && computerChoice === "paper") ||
+                        (userChoice === "paper" && computerChoice === "scissors") ||
+                        (userChoice === "scissors" && computerChoice === "rock")){
+                        return "Computer Wins!";
+            } else if ((userChoice === "rock" && computerChoice === "scissors") ||
+                        (userChoice === "paper" && computerChoice === "rock") ||
+                        (userChoice === "scissors" && computerChoice === "paper")){
+                        return "User Wins!";
+            } else return "This isn't working!......";
+        }
+
+        console.log ("Computer chose : ", computerPlay());
+        console.log ("User chose : ", userPlay());
+        console.log (oneRound());
+    </script>
+
+
+
+
+</body>
+</html>
